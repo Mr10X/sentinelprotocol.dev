@@ -223,9 +223,7 @@ footer{position:fixed;left:0;right:0;bottom:16px;text-align:center;font:500 10.5
   var settle = function () { stamps.forEach(function (s, i) { s.textContent = finalStamp(i); }); };
 
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var seen = false;
-  try { seen = sessionStorage.getItem('sp-intro') === '1'; sessionStorage.setItem('sp-intro', '1'); } catch (e) {}
-  if (reduce || seen) { settle(); d.classList.add('done'); return; }   // the finished frame, still
+  if (reduce) { settle(); d.classList.add('done'); return; }   // reduced motion: the finished frame, still; every other load plays the film
 
   d.classList.add('play');
   var real = [4100, 6100, 8100, 10100, 12100, 14100];               // when each entry seals (ms into the film)
