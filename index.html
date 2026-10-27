@@ -75,7 +75,7 @@ footer{position:fixed;left:0;right:0;bottom:16px;text-align:center;font:500 10.5
 
 /* ================= THE FILM (runs only when JS sets html.play; the page is whole without it) =================
    0.0  two big instruments flash red and green; nobody knows what they mean
-   3.0  they travel home slowly, blinking faster and faster, and agree on white (~8 s)
+   3.0  they travel home with the shrinking badge, blinking faster and faster; they agree on white only as they arrive (16.6 s)
    4.0  the record starts writing, one entry every 2 s, each with its saying surfacing in the room
    5.0  the badge begins to exist, barely, and grows to full only as the record ends
   16.6  locked in: a flash, the seal ring, and colour floods out from the badge
@@ -94,10 +94,10 @@ footer{position:fixed;left:0;right:0;bottom:16px;text-align:center;font:500 10.5
 .play .entry:nth-of-type(6) .t,.play .entry:nth-of-type(6) .w{animation-delay:14.00s}.play .entry:nth-of-type(6) .seal{animation-delay:14.10s,16.6s}
 
 /* the instruments: big, apart, flashing; then home; then white */
-.play .dot{opacity:1;animation:home 5.0s cubic-bezier(.6,0,.3,1) 3.0s both,fadeout .6s ease 16.55s forwards}
+.play .dot{opacity:1;animation:home 13.6s cubic-bezier(.3,.05,.25,1) 3.0s both,fadeout .5s ease 16.6s forwards}
 .play .dot.a{--sx:calc(var(--bw) * -.112 - 34px);--sy:calc(var(--bw) * .221)}
 .play .dot.b{--sx:calc(var(--bw) * -.171 + 34px);--sy:calc(var(--bw) * .221)}
-.play .dot::before{content:"";position:absolute;inset:0;border-radius:inherit;animation:blinkA 9.5s linear both}
+.play .dot::before{content:"";position:absolute;inset:0;border-radius:inherit;animation:blinkA 16.6s linear both}
 .play .dot.b::before{animation-name:blinkB}
 
 /* the pie: the badge draws itself clockwise around the dots, grey, then locks in colour */
@@ -119,21 +119,21 @@ footer{position:fixed;left:0;right:0;bottom:16px;text-align:center;font:500 10.5
 @keyframes home{from{transform:translate(var(--sx),var(--sy)) scale(6)}to{transform:none}}
 /* slow red/green disagreement, then faster and faster, then white: they agree */
 @keyframes blinkA{
-  0%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)}  9%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)}
-  18%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)} 27%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)}
-  36%{background:var(--sig-red)} 43%{background:var(--sig-green)} 49%{background:var(--sig-red)} 54%{background:var(--sig-green)}
-  58%{background:var(--sig-red)} 62%{background:var(--sig-green)} 65%{background:var(--sig-red)} 68%{background:var(--sig-green)}
-  70.5%{background:var(--sig-red)} 73%{background:var(--sig-green)} 75%{background:var(--sig-red)} 77%{background:var(--sig-green)}
-  78.5%{background:var(--sig-red)} 80%{background:var(--sig-green)} 81.3%{background:var(--sig-red)} 82.5%{background:var(--sig-green)}
-  84%,100%{background:#fff;box-shadow:0 0 14px rgba(255,255,255,.9)}}
+  0.0%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)}  10.4%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)}
+  20.9%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)} 31.3%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)}
+  41.8%{background:var(--sig-red)} 49.9%{background:var(--sig-green)} 56.9%{background:var(--sig-red)} 62.7%{background:var(--sig-green)}
+  67.3%{background:var(--sig-red)} 72.0%{background:var(--sig-green)} 75.4%{background:var(--sig-red)} 78.9%{background:var(--sig-green)}
+  81.8%{background:var(--sig-red)} 84.7%{background:var(--sig-green)} 87.1%{background:var(--sig-red)} 89.4%{background:var(--sig-green)}
+  91.1%{background:var(--sig-red)} 92.9%{background:var(--sig-green)} 94.4%{background:var(--sig-red)} 95.8%{background:var(--sig-green)}
+  97.5%,100%{background:#fff;box-shadow:0 0 14px rgba(255,255,255,.9)}}
 @keyframes blinkB{
-  0%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)}  9%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)}
-  18%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)} 27%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)}
-  36%{background:var(--sig-green)} 43%{background:var(--sig-red)} 49%{background:var(--sig-green)} 54%{background:var(--sig-red)}
-  58%{background:var(--sig-green)} 62%{background:var(--sig-red)} 65%{background:var(--sig-green)} 68%{background:var(--sig-red)}
-  70.5%{background:var(--sig-green)} 73%{background:var(--sig-red)} 75%{background:var(--sig-green)} 77%{background:var(--sig-red)}
-  78.5%{background:var(--sig-green)} 80%{background:var(--sig-red)} 81.3%{background:var(--sig-green)} 82.5%{background:var(--sig-red)}
-  84%,100%{background:#fff;box-shadow:0 0 14px rgba(255,255,255,.9)}}
+  0.0%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)}  10.4%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)}
+  20.9%{background:var(--sig-green);box-shadow:0 0 18px var(--sig-green)} 31.3%{background:var(--sig-red);box-shadow:0 0 18px var(--sig-red)}
+  41.8%{background:var(--sig-green)} 49.9%{background:var(--sig-red)} 56.9%{background:var(--sig-green)} 62.7%{background:var(--sig-red)}
+  67.3%{background:var(--sig-green)} 72.0%{background:var(--sig-red)} 75.4%{background:var(--sig-green)} 78.9%{background:var(--sig-red)}
+  81.8%{background:var(--sig-green)} 84.7%{background:var(--sig-red)} 87.1%{background:var(--sig-green)} 89.4%{background:var(--sig-red)}
+  91.1%{background:var(--sig-green)} 92.9%{background:var(--sig-red)} 94.4%{background:var(--sig-green)} 95.8%{background:var(--sig-red)}
+  97.5%,100%{background:#fff;box-shadow:0 0 14px rgba(255,255,255,.9)}}
 @keyframes fadeout{to{opacity:0}}
 @keyframes appear{to{opacity:1}}
 @keyframes shrink{to{transform:none}}
